@@ -9,8 +9,8 @@
   </head>
   <body ng-controller="recursiveCtrl">
     <h3>JSON object behind the scenes</h3>
-    <textarea rows="4" style="width:100%">{{data}}</textarea>
+    <textarea json-text rows="4" style="width:100%" ng-model="data"></textarea>
     <h3>Traversable Display</h3>
-    <batch data="data[0]"></batch>
+    <product label="'Product'" data="data"></product>
   </body>
 </html>

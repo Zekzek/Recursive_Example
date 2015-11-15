@@ -1,16 +1,21 @@
-<div class="productWrapper">
+<div class="batchWrapper">
   <div class="banner">
-    <span ng-click="product.expanded = !product.expanded" ng-show="product.expanded">-</span>
-    <span ng-click="product.expanded = !product.expanded" ng-hide="product.expanded">+</span>
-    Product
+    <span ng-click="data.expanded = !data.expanded" ng-show="data.expanded">-</span>
+    <span ng-click="data.expanded = !data.expanded" ng-hide="data.expanded">+</span>
+    {{label}}
   </div>
-  <div ng-if="product.expanded">  
-    <div ng-repeat="(key, value) in product">
-      <div ng-if="key != 'Components' && key != 'expanded'">{{key}}:{{value}}</div>
+  <div ng-if="data.expanded">
+    <div ng-repeat="(key, value) in data">
+      <div ng-if="!isObject(value) && key != 'expanded'">
+        {{key}}:{{value}}
+      </div>
     </div>
-    <div ng-repeat="(key, value) in product">
-      <div ng-if="key == 'Components'" >
-        <component ng-repeat = "component in value" data="component"></div>
+    <div ng-repeat="(key, value) in data">
+      <div ng-if="isArray(value)">
+        <product ng-repeat = "element in value" label="key" data="element"></product>
+      </div>
+      <div ng-if="isObject(value) && !isArray(value)">
+        <product label="key" data="value"></product>
       </div>
     </div>
   </div>
