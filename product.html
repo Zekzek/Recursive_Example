@@ -2,11 +2,11 @@
   <div class="banner">
     <span ng-click="data.expanded = !data.expanded" ng-show="data.expanded">-</span>
     <span ng-click="data.expanded = !data.expanded" ng-hide="data.expanded">+</span>
-    {{label}}
+    {{label}} :: {{data.Description}}
   </div>
   <div ng-if="data.expanded">
     <div ng-repeat="(key, value) in data">
-      <div ng-if="!isObject(value) && key != 'expanded'">
+      <div ng-if="!isObject(value) && key != 'expanded' && key.lastIndexOf('ID') != key.length - 2">
         {{key}}:{{value}}
       </div>
     </div>

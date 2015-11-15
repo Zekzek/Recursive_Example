@@ -3,49 +3,7 @@ var recursiveApp = angular.module('recursiveApp', []);
 recursiveApp.controller('recursiveCtrl', function($scope) {
 	$scope.test="test";
 	
-	$scope.data = {
-		"BatchID":35,
-		"Description":"Thingamabob",
-		"ProductID":12,
-		"Components":[
-			{
-				"Requirement":"Sprocket",
-				"Quantity":1,
-				"FulfilledBy":[
-					{ 
-						"BatchID":87,
-						"Product":{  
-							"Description":"Sprocket",
-							"ProductID":3,
-							"Components":[]
-						}						
-					}
-				]
-			},
-			{
-				"Requirement":"Gizmo",
-				"Quantity":5,
-				"FulfilledBy":[ 
-					{  
-						"BatchID":32,
-						"Product":{  
-							"Description":"Gizmo",
-							"ProductID":54,
-							"Components":[]
-						}
-					},
-					{  
-						"BatchID":33,
-						"Product":{
-							"Description":"Gizmo",
-							"ProductID":54,
-							"Components":[]
-						}
-					}
-				]
-			}
-		]
-	};
+	$scope.data = {"Description":"Microwave Popcorn","ProductID":12,"BatchID":35,"Location":{"Description":"Golden Valley Factory 1","LocationID":"17"},"Component":[{"Description":"Popcorn Oil","Quantity":1,"FulfilledBy":[{"Description":"Reed's Popcorn Oil","ProductID":3,"BatchID":87,"Location":{"Description":"Reed's Oil Factory","LocationID":"23"},"Component":[]}]},{"Description":"Popcorn Kernels","Quantity":5,"FulfilledBy":[{"Description":"Johnson's Yellow Popcorn","ProductID":54,"BatchID":32,"Location":{"Description":"Johnson's Thing Factory","LocationID":"115"},"Component":[]},{"Description":"Acme Kernels","ProductID":54,"BatchID":33,"Location":{"Description":"Unknown","LocationID":"-1"},"Component":[]}]}]};
 	
 	$scope.toggle = function(field) {
 		field.expanded = !field.expanded;
